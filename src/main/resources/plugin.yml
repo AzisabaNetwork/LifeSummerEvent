@@ -1,0 +1,6 @@
+name: LifeSummerEvent
+version: '${project.version}'
+main: com.github.sirokuri_.lifeSummerEvent.LifeSummerEvent
+api-version: 1.15
+authors: [ 46kuri_ ]
+description: 2022 LifeSummerEvent Plugin
