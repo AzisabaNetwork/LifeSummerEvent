@@ -7,5 +7,7 @@ plugin for life server in Azisaba Network
 
 # Guide
 
-- ``Fishing Event Item``： COD & else
-- ``CustomModelData``：int 1
+- ``Fishing Event Item``： Cod or else
+- ``Break Event Item`` : Melon
+- ``Give Item List`` : Crawfish & Paper
+- ``CustomModelData``：Int 1
