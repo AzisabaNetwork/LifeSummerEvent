@@ -4,3 +4,14 @@ main: com.github.sirokuri_.lifeSummerEvent.LifeSummerEvent
 api-version: 1.15
 authors: [ 46kuri_ ]
 description: 2022 LifeSummerEvent Plugin
+
+commands:
+  2022lifeSummer:
+    description: テスト用コマンド
+    permission: 2022lifeSummerCommand.permission.Member
+
+permissions:
+  2022lifeSummerCommand.permission.Admin:
+    default: op
+  2022lifeSummerCommand.permission.Member:
+    default: true
