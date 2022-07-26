@@ -24,7 +24,7 @@ public class LifeSummerFishingEvent implements Listener {
         if(event.getCaught() instanceof Item){
             Item item = (Item) event.getCaught();
             if(item.getItemStack().getType().equals(Material.COD)){
-                int randomValue = random.nextInt(100);
+                int randomValue = random.nextInt(10000);
                 ItemStack itemStack = item.getItemStack();
                 ItemMeta itemMeta = itemStack.getItemMeta();
                 if (itemMeta == null) return;
