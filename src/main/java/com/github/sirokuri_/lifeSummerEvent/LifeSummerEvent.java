@@ -15,7 +15,7 @@ public final class LifeSummerEvent extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new LifeSummerFishingEvent(), this);
         Bukkit.getPluginManager().registerEvents(new LifeSummerBreakEvent(), this);
         Bukkit.getPluginManager().registerEvents(new LifeSummerRequestEvent(), this);
-        getCommand("lifeSummer").setExecutor(new LifeSummerCommands());
+        getCommand("lifeSummer").setExecutor(new LifeSummerCommands(this));
         Bukkit.getLogger().info("[LifeSummerEventPlugin] を読み込みました");
     }
 

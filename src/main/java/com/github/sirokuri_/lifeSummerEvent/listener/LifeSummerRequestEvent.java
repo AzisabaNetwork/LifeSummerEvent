@@ -23,7 +23,7 @@ public class LifeSummerRequestEvent implements Listener {
         ItemMeta itemMeta = itemStack.getItemMeta();
         if(itemMeta == null) return;
         String itemDisplayName = itemMeta.getDisplayName();
-        if(itemDisplayName.equals((ChatColor.translateAlternateColorCodes('&',"&4サリガ二")))) {
+        if(itemDisplayName.equals((ChatColor.translateAlternateColorCodes('&',"&4ザリガニ")))) {
             Block clickedBlock = e.getBlock();
             if (clickedBlock.getType() == Material.OAK_WALL_SIGN) {
                 Sign sign = (Sign) clickedBlock.getState();
@@ -42,7 +42,7 @@ public class LifeSummerRequestEvent implements Listener {
                             }else{
                                 inv.addItem(itemStack);
                                 itemStack.setAmount(0);
-                                player.sendMessage("リクエスト用紙を申請しました");
+                                player.sendMessage(ChatColor.translateAlternateColorCodes('&',"&cザリガニ&bを提出しました"));
                             }
                         }
                     }
