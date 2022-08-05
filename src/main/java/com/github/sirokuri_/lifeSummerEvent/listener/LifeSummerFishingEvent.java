@@ -31,6 +31,7 @@ public class LifeSummerFishingEvent implements Listener {
                 if (playerItemMeta.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&',"&b&l2022 &r&4[ザリガニ専用]&r 釣り竿"))){
                     if(item.getItemStack().getType().equals(Material.COD)){
                         int randomValue = random.nextInt(10000);
+                        int randomValue2 = random.nextInt(100);
                         ItemStack itemStack = item.getItemStack();
                         ItemMeta itemMeta = itemStack.getItemMeta();
                         if (itemMeta == null) return;
@@ -38,7 +39,7 @@ public class LifeSummerFishingEvent implements Listener {
                         itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&4ザリガニ"));
                         List<String> lore = new ArrayList<>();
                         lore.add(ChatColor.translateAlternateColorCodes('&',"&a[ " + playerName + " ] &rが釣りあげた"));
-                        lore.add(ChatColor.translateAlternateColorCodes('&',"&aザリガニのサイズは&b[ " + randomValue + " ] &acm"));
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&aザリガニのサイズは&b[ " + randomValue + "." + randomValue2 + " ] &acm"));
                         itemMeta.setLore(lore);
                         itemStack.setItemMeta(itemMeta);
                         item.setItemStack(itemStack);
@@ -47,6 +48,10 @@ public class LifeSummerFishingEvent implements Listener {
                         ItemMeta itemMeta = itemStack.getItemMeta();
                         if(itemMeta == null) return;
                         itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&4誰かが捨てたゴミ"));
+                        List<String> lore = new ArrayList<>();
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&d/trash &r推奨"));
+                        itemMeta.setLore(lore);
+                        itemStack.setItemMeta(itemMeta);
                         itemStack.setItemMeta(itemMeta);
                     }
                 }

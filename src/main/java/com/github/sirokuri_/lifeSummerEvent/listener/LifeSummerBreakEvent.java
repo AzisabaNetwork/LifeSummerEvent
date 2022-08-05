@@ -15,12 +15,12 @@ public class LifeSummerBreakEvent implements Listener {
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
         Block block = e.getBlock();
-        //if (!block.getWorld().getName().contains("2022summer")) return;
+        //if (!block.getWorld().getName().contains("resource")) return;
         if (e.getPlayer().getGameMode() != GameMode.SURVIVAL) {
             return;
         }
         Random random = new Random();
-        int num = random.nextInt(20);
+        int num = random.nextInt(200);
         if (1 <= num && num <= 4) {
             if (block.getType() == Material.AIR) return;
             if (block.getType() == Material.MELON){

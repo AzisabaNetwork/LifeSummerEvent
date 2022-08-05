@@ -47,6 +47,73 @@ public class LifeSummerRequestEvent implements Listener {
                         }
                     }
                 }
+
+                if(line.equals("不要なザリガニ提出")){
+                    Block block = e.getBlock();
+                    for (BlockFace face : new BlockFace[] {BlockFace.NORTH, BlockFace.SOUTH, BlockFace.EAST, BlockFace.WEST,}) {
+                        Block relative = block.getRelative(face);
+                        if (relative.getType() == Material.CHEST) {
+                            Chest chest = (Chest) relative.getState();
+                            Inventory inv = chest.getInventory();
+                            int emptySlot = inv.firstEmpty();
+                            if (emptySlot == -1) {
+                                player.sendMessage("チェストが満タンです。運営に報告してください");
+                                return;
+                            }else{
+                                inv.addItem(itemStack);
+                                itemStack.setAmount(0);
+                                player.sendMessage(ChatColor.translateAlternateColorCodes('&',"&cザリガニ&bを提出しました"));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if(itemDisplayName.equals((ChatColor.translateAlternateColorCodes('&',"&4ザリガニ")))) {
+            Block clickedBlock = e.getBlock();
+            if (clickedBlock.getType() == Material.OAK_WALL_SIGN) {
+                Sign sign = (Sign) clickedBlock.getState();
+                String line = sign.getLine(0);
+                if(line.equals("ザリガニ提出")){
+                    Block block = e.getBlock();
+                    for (BlockFace face : new BlockFace[] {BlockFace.NORTH, BlockFace.SOUTH, BlockFace.EAST, BlockFace.WEST,}) {
+                        Block relative = block.getRelative(face);
+                        if (relative.getType() == Material.CHEST) {
+                            Chest chest = (Chest) relative.getState();
+                            Inventory inv = chest.getInventory();
+                            int emptySlot = inv.firstEmpty();
+                            if (emptySlot == -1) {
+                                player.sendMessage("チェストが満タンです。運営に報告してください");
+                                return;
+                            }else{
+                                inv.addItem(itemStack);
+                                itemStack.setAmount(0);
+                                player.sendMessage(ChatColor.translateAlternateColorCodes('&',"&cザリガニ&bを提出しました"));
+                            }
+                        }
+                    }
+                }
+
+                if(line.equals("不要なザリガニ提出")){
+                    Block block = e.getBlock();
+                    for (BlockFace face : new BlockFace[] {BlockFace.NORTH, BlockFace.SOUTH, BlockFace.EAST, BlockFace.WEST,}) {
+                        Block relative = block.getRelative(face);
+                        if (relative.getType() == Material.CHEST) {
+                            Chest chest = (Chest) relative.getState();
+                            Inventory inv = chest.getInventory();
+                            int emptySlot = inv.firstEmpty();
+                            if (emptySlot == -1) {
+                                player.sendMessage("チェストが満タンです。運営に報告してください");
+                                return;
+                            }else{
+                                inv.addItem(itemStack);
+                                itemStack.setAmount(0);
+                                player.sendMessage(ChatColor.translateAlternateColorCodes('&',"&cザリガニ&bを提出しました"));
+                            }
+                        }
+                    }
+                }
             }
         }
     }
