@@ -20,29 +20,38 @@ public class LifeSummerFishingEvent implements Listener {
     public void onFishing(PlayerFishEvent event){
         Player player = event.getPlayer();
         String playerName = player.getName();
+        //if (!player.getWorld().getName().contains("2022summer")) return;
+        ItemStack playerItemStack = player.getInventory().getItemInMainHand();
+        ItemMeta playerItemMeta = playerItemStack.getItemMeta();
+        if (playerItemMeta == null) return;
         Random random = new Random();
         if(event.getCaught() instanceof Item){
             Item item = (Item) event.getCaught();
-            if(item.getItemStack().getType().equals(Material.COD)){
-                int randomValue = random.nextInt(10000);
-                ItemStack itemStack = item.getItemStack();
-                ItemMeta itemMeta = itemStack.getItemMeta();
-                if (itemMeta == null) return;
-                itemMeta.setCustomModelData(1);
-                itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&4ザリガニ"));
-                List<String> lore = new ArrayList<String>();
-                lore.add(ChatColor.translateAlternateColorCodes('&',"&a[ " + playerName + " ] &rが釣りあげた"));
-                lore.add(ChatColor.translateAlternateColorCodes('&',"&aザリガニのサイズは&b[ " + randomValue + " ] &acm"));
-                itemMeta.setLore(lore);
-                itemStack.setItemMeta(itemMeta);
-                item.setItemStack(itemStack);
-            }else {
-                ItemStack itemStack = item.getItemStack();
-                ItemMeta itemMeta = itemStack.getItemMeta();
-                if(itemMeta == null) return;
-                itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&4誰かが捨てたゴミ"));
-                itemStack.setItemMeta(itemMeta);
+            if (playerItemStack.getType().equals(Material.FISHING_ROD)){
+                if (playerItemMeta.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&',"&b&l2022 &r&4[ザリガニ専用]&r 釣り竿"))){
+                    if(item.getItemStack().getType().equals(Material.COD)){
+                        int randomValue = random.nextInt(10000);
+                        ItemStack itemStack = item.getItemStack();
+                        ItemMeta itemMeta = itemStack.getItemMeta();
+                        if (itemMeta == null) return;
+                        itemMeta.setCustomModelData(1);
+                        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&4ザリガニ"));
+                        List<String> lore = new ArrayList<>();
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&a[ " + playerName + " ] &rが釣りあげた"));
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&aザリガニのサイズは&b[ " + randomValue + " ] &acm"));
+                        itemMeta.setLore(lore);
+                        itemStack.setItemMeta(itemMeta);
+                        item.setItemStack(itemStack);
+                    }else {
+                        ItemStack itemStack = item.getItemStack();
+                        ItemMeta itemMeta = itemStack.getItemMeta();
+                        if(itemMeta == null) return;
+                        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&4誰かが捨てたゴミ"));
+                        itemStack.setItemMeta(itemMeta);
+                    }
+                }
             }
+
         }
     }
 }
