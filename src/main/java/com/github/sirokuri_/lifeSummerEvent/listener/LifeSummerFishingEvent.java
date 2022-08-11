@@ -1,6 +1,7 @@
 package com.github.sirokuri_.lifeSummerEvent.listener;
 
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
@@ -20,7 +21,8 @@ public class LifeSummerFishingEvent implements Listener {
     public void onFishing(PlayerFishEvent event){
         Player player = event.getPlayer();
         String playerName = player.getName();
-        //if (!player.getWorld().getName().contains("2022summer")) return;
+        if (!player.getWorld().getName().contains("2022summer")) return;
+        if (player.getGameMode() != GameMode.SURVIVAL) return;
         ItemStack playerItemStack = player.getInventory().getItemInMainHand();
         ItemMeta playerItemMeta = playerItemStack.getItemMeta();
         if (playerItemMeta == null) return;
@@ -30,7 +32,8 @@ public class LifeSummerFishingEvent implements Listener {
             if (playerItemStack.getType().equals(Material.FISHING_ROD)){
                 if (playerItemMeta.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&',"&b&l2022 &r&4[ザリガニ専用]&r 釣り竿"))){
                     if(item.getItemStack().getType().equals(Material.COD)){
-                        int randomValue = random.nextInt(10000);
+                        if (!player.getWorld().getName().contains("2022summer")) return;
+                        int randomValue = random.nextInt(100000);
                         int randomValue2 = random.nextInt(100);
                         ItemStack itemStack = item.getItemStack();
                         ItemMeta itemMeta = itemStack.getItemMeta();
@@ -56,7 +59,6 @@ public class LifeSummerFishingEvent implements Listener {
                     }
                 }
             }
-
         }
     }
 }

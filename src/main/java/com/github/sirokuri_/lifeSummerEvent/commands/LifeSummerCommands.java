@@ -11,6 +11,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LifeSummerCommands implements CommandExecutor {
 
     private final LifeSummerEvent plugin;
@@ -43,10 +46,30 @@ public class LifeSummerCommands implements CommandExecutor {
                 if (args[1].equalsIgnoreCase("2")) {
                     if (sender.hasPermission("2022lifeSummerCommand.permission.Admin")) {
                         ItemStack itemStack = new ItemStack(Material.FISHING_ROD);
-                        itemStack.addUnsafeEnchantment(Enchantment.LURE,3);
+                        itemStack.addUnsafeEnchantment(Enchantment.LURE,1);
                         ItemMeta itemMeta = itemStack.getItemMeta();
                         if(itemMeta == null) return true;
                         itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&b&l2022 &r&4[ザリガニ専用]&r 釣り竿"));
+                        List<String> lore = new ArrayList<>();
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&a&llifeevent鯖の"));
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&b&l2022summer&6&bワールドの水場で"));
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&cザリガニ&rを釣ろう!"));
+                        itemMeta.setLore(lore);
+                        itemStack.setItemMeta(itemMeta);
+                        player.getInventory().addItem(itemStack);
+                    }
+                }
+                if (args[1].equalsIgnoreCase("3")) {
+                    if (sender.hasPermission("2022lifeSummerCommand.permission.Admin")) {
+                        ItemStack itemStack = new ItemStack(Material.STICK);
+                        ItemMeta itemMeta = itemStack.getItemMeta();
+                        if(itemMeta == null) return true;
+                        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&b&l2022 &r&a[スイカ割り専用]&r 割り棒"));
+                        List<String> lore = new ArrayList<>();
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&a&lliferesource鯖の"));
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&aresourceワールドでスイカを壊そう！"));
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&d特殊なチケットが出るかも？"));
+                        itemMeta.setLore(lore);
                         itemStack.setItemMeta(itemMeta);
                         player.getInventory().addItem(itemStack);
                     }
