@@ -59,7 +59,24 @@ public class LifeSummerCommands implements CommandExecutor {
                         player.getInventory().addItem(itemStack);
                     }
                 }
+
                 if (args[1].equalsIgnoreCase("3")) {
+                    if (sender.hasPermission("2022lifeSummerCommand.permission.Admin")) {
+                        ItemStack itemStack = new ItemStack(Material.FISHING_ROD);
+                        itemStack.addUnsafeEnchantment(Enchantment.LURE,1);
+                        ItemMeta itemMeta = itemStack.getItemMeta();
+                        if(itemMeta == null) return true;
+                        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&b&l2022 &r&4[ザリガニ専用]&r ミニ釣り竿"));
+                        List<String> lore = new ArrayList<>();
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&a&llifeevent鯖の"));
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&b&l2022summer&6&bワールドの水場で"));
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&cザリガニ&rを釣ろう!"));
+                        itemMeta.setLore(lore);
+                        itemStack.setItemMeta(itemMeta);
+                        player.getInventory().addItem(itemStack);
+                    }
+                }
+                if (args[1].equalsIgnoreCase("5")) {
                     if (sender.hasPermission("2022lifeSummerCommand.permission.Admin")) {
                         ItemStack itemStack = new ItemStack(Material.STICK);
                         ItemMeta itemMeta = itemStack.getItemMeta();

@@ -58,6 +58,34 @@ public class LifeSummerFishingEvent implements Listener {
                         itemStack.setItemMeta(itemMeta);
                     }
                 }
+                if (playerItemMeta.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&',"&b&l2022 &r&4[ザリガニ専用]&r ミニ釣り竿"))){
+                    if(item.getItemStack().getType().equals(Material.COD)){
+                        if (!player.getWorld().getName().contains("2022summer")) return;
+                        int randomValue = random.nextInt(1000);
+                        int randomValue2 = random.nextInt(100);
+                        ItemStack itemStack = item.getItemStack();
+                        ItemMeta itemMeta = itemStack.getItemMeta();
+                        if (itemMeta == null) return;
+                        itemMeta.setCustomModelData(1);
+                        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&4ザリガニ"));
+                        List<String> lore = new ArrayList<>();
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&a[ " + playerName + " ] &rが釣りあげた"));
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&aザリガニのサイズは&b[ " + randomValue + "." + randomValue2 + " ] &acm"));
+                        itemMeta.setLore(lore);
+                        itemStack.setItemMeta(itemMeta);
+                        item.setItemStack(itemStack);
+                    }else {
+                        ItemStack itemStack = item.getItemStack();
+                        ItemMeta itemMeta = itemStack.getItemMeta();
+                        if(itemMeta == null) return;
+                        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&4誰かが捨てたゴミ"));
+                        List<String> lore = new ArrayList<>();
+                        lore.add(ChatColor.translateAlternateColorCodes('&',"&d/trash &r推奨"));
+                        itemMeta.setLore(lore);
+                        itemStack.setItemMeta(itemMeta);
+                        itemStack.setItemMeta(itemMeta);
+                    }
+                }
             }
         }
     }
