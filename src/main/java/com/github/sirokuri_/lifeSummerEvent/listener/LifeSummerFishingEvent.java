@@ -45,7 +45,9 @@ public class LifeSummerFishingEvent implements Listener {
                         lore.add(ChatColor.translateAlternateColorCodes('&',"&aザリガニのサイズは&b[ " + randomValue + "." + randomValue2 + " ] &acm"));
                         itemMeta.setLore(lore);
                         itemStack.setItemMeta(itemMeta);
-                        item.setItemStack(itemStack);
+                        if (playerItemMeta.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&',"&b&l2022 &r&4[ザリガニ専用]&r 釣り竿"))){
+                            item.setItemStack(itemStack);
+                        }
                     }else {
                         ItemStack itemStack = item.getItemStack();
                         ItemMeta itemMeta = itemStack.getItemMeta();
@@ -73,7 +75,9 @@ public class LifeSummerFishingEvent implements Listener {
                         lore.add(ChatColor.translateAlternateColorCodes('&',"&aザリガニのサイズは&b[ " + randomValue + "." + randomValue2 + " ] &acm"));
                         itemMeta.setLore(lore);
                         itemStack.setItemMeta(itemMeta);
-                        item.setItemStack(itemStack);
+                        if (playerItemMeta.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&',"&b&l2022 &r&4[ザリガニ専用]&r ミニ釣り竿"))){
+                            item.setItemStack(itemStack);
+                        }
                     }else {
                         ItemStack itemStack = item.getItemStack();
                         ItemMeta itemMeta = itemStack.getItemMeta();
