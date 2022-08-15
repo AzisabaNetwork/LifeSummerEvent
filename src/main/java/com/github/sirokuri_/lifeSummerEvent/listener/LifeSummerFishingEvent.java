@@ -38,14 +38,14 @@ public class LifeSummerFishingEvent implements Listener {
                         ItemStack itemStack = item.getItemStack();
                         ItemMeta itemMeta = itemStack.getItemMeta();
                         if (itemMeta == null) return;
-                        itemMeta.setCustomModelData(1);
-                        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&4ザリガニ"));
-                        List<String> lore = new ArrayList<>();
-                        lore.add(ChatColor.translateAlternateColorCodes('&',"&a[ " + playerName + " ] &rが釣りあげた"));
-                        lore.add(ChatColor.translateAlternateColorCodes('&',"&aザリガニのサイズは&b[ " + randomValue + "." + randomValue2 + " ] &acm"));
-                        itemMeta.setLore(lore);
-                        itemStack.setItemMeta(itemMeta);
                         if (playerItemMeta.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&',"&b&l2022 &r&4[ザリガニ専用]&r 釣り竿"))){
+                            itemMeta.setCustomModelData(1);
+                            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&4ザリガニ"));
+                            List<String> lore = new ArrayList<>();
+                            lore.add(ChatColor.translateAlternateColorCodes('&',"&a[ " + playerName + " ] &rが釣りあげた"));
+                            lore.add(ChatColor.translateAlternateColorCodes('&',"&aザリガニのサイズは&b[ " + randomValue + "." + randomValue2 + " ] &acm"));
+                            itemMeta.setLore(lore);
+                            itemStack.setItemMeta(itemMeta);
                             item.setItemStack(itemStack);
                         }
                     }else {
@@ -68,14 +68,14 @@ public class LifeSummerFishingEvent implements Listener {
                         ItemStack itemStack = item.getItemStack();
                         ItemMeta itemMeta = itemStack.getItemMeta();
                         if (itemMeta == null) return;
-                        itemMeta.setCustomModelData(1);
-                        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&4ザリガニ"));
-                        List<String> lore = new ArrayList<>();
-                        lore.add(ChatColor.translateAlternateColorCodes('&',"&a[ " + playerName + " ] &rが釣りあげた"));
-                        lore.add(ChatColor.translateAlternateColorCodes('&',"&aザリガニのサイズは&b[ " + randomValue + "." + randomValue2 + " ] &acm"));
-                        itemMeta.setLore(lore);
-                        itemStack.setItemMeta(itemMeta);
                         if (playerItemMeta.getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&',"&b&l2022 &r&4[ザリガニ専用]&r ミニ釣り竿"))){
+                            itemMeta.setCustomModelData(1);
+                            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&4ザリガニ"));
+                            List<String> lore = new ArrayList<>();
+                            lore.add(ChatColor.translateAlternateColorCodes('&',"&a[ " + playerName + " ] &rが釣りあげた"));
+                            lore.add(ChatColor.translateAlternateColorCodes('&',"&aザリガニのサイズは&b[ " + randomValue + "." + randomValue2 + " ] &acm"));
+                            itemMeta.setLore(lore);
+                            itemStack.setItemMeta(itemMeta);
                             item.setItemStack(itemStack);
                         }
                     }else {
